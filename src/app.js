@@ -15,7 +15,7 @@ app.get('/tasks', (req, res) => {
 
 app.post('/tasks', (req, res) => {
   const { title, description } = req.body;
-  console.log(typeof req.body);
+  if (!title || !description) return res.status(400).send('Bad request');
   res.json({
     title,
     description,
