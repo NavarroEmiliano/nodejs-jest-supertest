@@ -13,3 +13,7 @@ describe('GET /tasks', () => {
     expect(response.body).toBeInstanceOf(Array);
   });
 });
+
+describe('POST /tasks', () => {
+  
+ });
