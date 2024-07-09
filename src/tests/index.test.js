@@ -26,4 +26,12 @@ describe('POST /tasks', () => {
       expect.stringContaining('json')
     );
   });
+
+  test('should respond with an task ID', async () => {
+    const response = await request(app).post('/tasks').send({
+      title:'jest',
+      description: 'test ID'
+    });
+    expect(response.body.id).toBeDefined();
+  });
 });
