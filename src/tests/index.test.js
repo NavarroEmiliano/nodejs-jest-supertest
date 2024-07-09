@@ -15,5 +15,15 @@ describe('GET /tasks', () => {
 });
 
 describe('POST /tasks', () => {
-  
- });
+  test('should respond with a 200 status code', async () => {
+    const response = await request(app).post('/tasks').send();
+    expect(response.statusCode).toBe(200);
+  });
+
+  test('should have a content-type: application/json in header', async () => {
+    const response = await request(app).post('/tasks').send();
+    expect(response.headers['content-type']).toEqual(
+      expect.stringContaining('json')
+    );
+  });
+});
